@@ -9,6 +9,7 @@ import remove  from '../fs/delete.js';
 import calculateHash from '../hash/hash.js';
 import compress from '../zip/compress.js';
 import decompress from '../zip/decompress.js';
+import listOfFiles from '../ls/ls.js';
 import { osEOL, osCpus, osHomedir, osUsername, osArchitecture } from '../os/os.js';
 
 let userHomeDir = osHomedir();
@@ -83,6 +84,9 @@ const switchOs = async (line) => {
 
 const switchCommand = async (command, line) => {
   switch (command) {
+    case 'ls':
+      await listOfFiles('./');
+      break;
     case 'cat':
       await read(line.trim().split(' ')[1]);
       break;
