@@ -3,8 +3,8 @@ import path from 'path';
 
 
 const create = async (fileName) => {
-    const filePath = path.normalize(fileName);
     try {
+        const filePath = path.normalize(fileName);
         await fs.writeFile(filePath, '');
     } catch (err) {
         console.error('Operation failed');

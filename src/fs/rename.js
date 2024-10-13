@@ -4,11 +4,9 @@ import fs from 'node:fs/promises';
 
 
 const rename = async (filepath, newFilePath) => {
-    let fromPath = filepath;
-    let toPath = newFilePath;
-    fromPath = path.normalize(filepath);
-    toPath = path.normalize(newFilePath);
     try {
+        const fromPath = path.normalize(filepath);
+        const toPath = path.normalize(newFilePath);
         await fs.rename(fromPath, toPath);
     } catch (err) {
         throw new Error('Operation failed');

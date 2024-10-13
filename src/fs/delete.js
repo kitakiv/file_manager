@@ -2,8 +2,8 @@ import fs from 'node:fs/promises';
 import path from 'path';
 
 const remove = async (filePath) => {
-    const pathToFile = path.normalize(filePath);
     try {
+        const pathToFile = path.normalize(filePath);
         await fs.unlink(pathToFile);
     } catch (err) {
         console.error('Operation failed');
