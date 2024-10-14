@@ -10,6 +10,7 @@ import calculateHash from '../hash/hash.js';
 import compress from '../zip/compress.js';
 import decompress from '../zip/decompress.js';
 import listOfFiles from '../ls/ls.js';
+import { goUpDirectory, changeDirectory } from '../nwd/nwd.js';
 import { osEOL, osCpus, osHomedir, osUsername, osArchitecture } from '../os/os.js';
 
 let userHomeDir = osHomedir();
@@ -113,6 +114,12 @@ const switchCommand = async (command, line) => {
       break;
     case 'decompress':
       await decompress(line.trim().split(' ')[1], line.trim().split(' ')[2]);
+      break;
+    case 'up':
+      userHomeDir = await goUpDirectory(userHomeDir);
+      break;
+    case 'cd':
+      userHomeDir = await changeDirectory(userHomeDir, line.trim().split(' ')[1]);
       break;
     case '.exit':
       exitCommand(userName);
