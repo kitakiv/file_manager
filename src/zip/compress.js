@@ -14,7 +14,6 @@ const compress = async (filePath, newFilePath) => {
             zlib.createBrotliCompress(),
             createWriteStream(toPath)
         );
-        await fs.unlink(fromPath);
     } catch (err) {
         console.error('Operation failed.');
     }
