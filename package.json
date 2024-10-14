@@ -1,0 +1,15 @@
+{
+  "name": "file_manager",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/main/main.js",
+    "start:dev": "node src/main/main.js -- --username=Vika"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
